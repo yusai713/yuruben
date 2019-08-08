@@ -1,1 +1,26 @@
-<h1>Hello World!</h1>
+<div class="display-center flex">
+  <section class="flex-inner2">
+    <h1 class="h1-concept">
+      誰でもゆるっと<br>
+      勉強会を企画！
+    </h1>
+    <p class="p-desc">
+      ゆる勉は、何かを必死に勉強している<br>
+      あなたのための支援サービスです。<br>
+      学習を楽しく継続するために<br>
+      少人数の勉強会を習慣化しよう！
+    </p>
+    <button class="btn btn-lg btn-bg btn-register" type="button">
+    <% if user_signed_in? %>
+      <%= link_to "イベント一覧へ ▶︎", class: 'nav-link post' %>
+    <% else %>
+      <%= link_to "ゆる勉に参加する ▶︎", new_user_registration_path, class: 'nav-link post' %>
+    <% end %>
+    </button>
+  </section>
+  <section class="flex-inner2">
+    <h2 class="h2-event">開催予定の勉強会一覧</h2>
+    <div class="evnet-list">
+    </div>
+  </section>
+</div>

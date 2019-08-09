@@ -1,0 +1,18 @@
+<h1>開催予定の勉強会</h1>
+  <% @events.each do |event| %>
+    <p><%= event.name %><%= event.contents %></p>
+    <% if user_signed_in? %>
+      <% if event.event_user?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
+        <p><span>参加やめる: </span><%=link_to event.event_users.count, event_event_users_path(event.id), method: :delete %></p>
+      <% else %>
+        <p><span>参加する: </span><%=link_to event.event_users.count, event_event_users_path(event.id), method: :post %></p>
+      <% end %>
+    <% else %>
+      <p><span>お気に入り数: </span><%= event.event_users.count %></p>
+      <p>ログインしてください</p>
+    <% end %>
+  <% end %>
+  <hr>
+  <button class="btn btn-lg btn-bg btn-register" type="button">
+    <%= link_to "勉強会を企画する ▶︎", new_event_path %>
+  </button>

@@ -1,0 +1,9 @@
+<p>名前：</p>
+<%= @user.name %>
+<p>自己紹介：</p>
+<%= @user.profile %>
+<hr>
+<% @events.each do |event| %>
+<p>参加予定の勉強会</p>
+<p><%= link_to event.name, event_path(event.id) %></p>
+<% end %>

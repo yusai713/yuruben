@@ -12,7 +12,7 @@
     </p>
     <button class="btn btn-lg btn-bg btn-register" type="button">
     <% if user_signed_in? %>
-      <%= link_to "イベント一覧へ ▶︎", class: 'nav-link post' %>
+      <%= link_to "イベント一覧へ ▶︎", events_path, class: 'nav-link post' %>
     <% else %>
       <%= link_to "ゆる勉に参加する ▶︎", new_user_registration_path, class: 'nav-link post' %>
     <% end %>
@@ -21,6 +21,17 @@
   <section class="flex-inner2">
     <h2 class="h2-event">開催予定の勉強会一覧</h2>
     <div class="evnet-list">
+
+    <table class="event-list-box">
+      <tbody>
+      <% @events.each do |event| %>
+        <tr>
+          <td><%= event.name %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
     </div>
   </section>
 </div>

@@ -139,3 +139,19 @@ footer {
 
   }
 }
+
+.h2-event {
+  margin-bottom: 50px;
+}
+
+.event-list-box {
+  border: 5px solid;
+  background: #fff;
+  width: 400px;
+  margin: 0 auto;
+
+  td {
+    padding: 10px;
+    border-bottom: 5px solid;
+  }
+}

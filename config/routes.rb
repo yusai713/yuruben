@@ -4,5 +4,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
 
+  resources :events do
+    resource :event_users, only: %i[create destroy]
+  end
+
   root 'homes#index'
 end

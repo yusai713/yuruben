@@ -1,3 +1,5 @@
 class HomesController < ApplicationController
-  def index; end
+  def index
+    @events = Event.all
+  end
 end

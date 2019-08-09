@@ -35,6 +35,7 @@ h2 {
 .flex {
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 body {
@@ -48,8 +49,9 @@ body {
     Meiryo,
     'ＭＳ ゴシック',
     sans-serif;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
+  height: 100%;
   color: #707070;
 }
 
@@ -82,7 +84,7 @@ main {
 
 /*---footer---*/
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 1%;
   right: 1%;
 }
@@ -154,4 +156,44 @@ footer {
     padding: 10px;
     border-bottom: 5px solid;
   }
+}
+
+/*---Event一覧---*/
+.h2-events {
+  text-align: left;
+}
+
+.event-box {
+  width: 30%;
+  padding: 1%;
+  border: 3px solid;
+  margin: 1% 1% 1% 0;
+
+  .event-label {
+    padding: 0px 10px;
+    width: 150px;
+    text-align: center;
+    border-radius: 50px;
+  }
+
+  .event-participants {
+    background: #FFDE63;
+  }
+
+  .event-reservation {
+    background: #43B4F8;
+    color: white;
+  }
+
+  .event-join {
+    background: #FB7F89;
+    color: white;
+  }
+
+}
+
+/*---マイページ---*/
+.event-cancel {
+  border: 1px solid;
+  padding: 5px;
 }

@@ -1,6 +1,4 @@
-<%= form_for @event, method: :post do |f| %>
+<section>
   <h1>ゆるっと勉強会を企画する。</h1>
-  <p>何の勉強会？：<%= f.text_field :name %></p>
-  <p>内容：<%= f.text_area :contents %></p>
-  <input type="submit" value="送信">
-<% end %>
+  <%= render "form" %>
+</section>

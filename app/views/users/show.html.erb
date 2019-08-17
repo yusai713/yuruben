@@ -1,13 +1,30 @@
-<p>名前：</p>
-<%= @user.name %>
-<p>自己紹介：</p>
-<%= @user.profile %>
-<hr>
-<p>参加予定の勉強会</p>
-<% @user_events.each do |event| %>
-  <p><%= link_to event.name, event_path(event.id) %>
-    <% if event.event_user?(current_user) %> <!-- ログインしているユーザーが参加中かどうかで分岐 -->
-      <span class="event-cancel"><%=link_to "やめる", event_event_users_path(event.id), method: :delete %></span>
+<section>
+  <div class="profile">
+    <% if @user.image? %>
+    <%= image_tag @user.image.url %>
+    <% else %>
+    <%= image_tag("no-image.png") %>
     <% end %>
-  </p>
-<% end %>
+    <p><%= @user.name %></p>
+    <p class="profile_text"><%= @user.profile %></p>
+    <button class="btn_common">
+      <%= link_to 'プロフィールの編集', edit_user_registration_path %>
+    </button>
+  </div>
+
+  <hr>
+
+  <div class="reserved_event">
+    <p class="reserved_event_h">参加予定の勉強会</p>
+    <% @user_events.each do |event| %>
+    <p>
+      ○<%= link_to event.name, event_path(event.id) %>
+      <% if event.event_user?(current_user) %>
+      <!-- ログインしているユーザーが参加中かどうかで分岐 -->
+      <span class="cancel"><%=link_to "×", event_event_users_path(event.id), method: :delete %></span>
+      <% end %>
+    </p>
+    <% end %>
+  </div>
+
+</section>

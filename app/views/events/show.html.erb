@@ -1,0 +1,19 @@
+<section>
+  <h1><%= @event.name %></h1>
+  <div class="thumbnail-box">
+    <% if @event.thumbnail? %>
+    <%= image_tag @event.thumbnail.url %>
+    <% else %>
+    <%= image_tag("no-thumbnail.jpg") %>
+    <% end %>
+  </div>
+
+  <div class="event_contents">
+    <p><%= @event.contents %></p>
+  </div>
+
+  <button class="btn_common">
+    <%= link_to 'イベントの編集', edit_event_path %>
+  </button>
+
+</section>

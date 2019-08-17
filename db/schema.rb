@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2019_08_08_143447) do
   create_table "events", force: :cascade do |t|
     t.string "name", null: false
     t.text "contents"
+    t.string "thumbnail"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -66,6 +67,7 @@ ActiveRecord::Schema.define(version: 2019_08_08_143447) do
     t.boolean "admin", default: false, null: false
     t.string "name", default: "", null: false
     t.text "profile", default: ""
+    t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

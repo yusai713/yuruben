@@ -3,6 +3,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
     create_table :events do |t|
       t.string :name, null: false
       t.text :contents
+      t.string :thumbnail
       t.integer :user_id
       t.timestamps
     end

@@ -11,11 +11,15 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
+#自分で追加した機能
 gem 'activeadmin'
 gem 'devise'
+gem 'carrierwave'
+gem 'mini_magick'
 gem 'cancancan'
 gem 'bootstrap', '>=4.3.1'
 gem 'jquery-rails'
+#
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

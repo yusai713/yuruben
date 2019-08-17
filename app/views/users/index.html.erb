@@ -1,31 +1,33 @@
-<h1>ゆる勉ユーザー一覧</h1>
-<% if user_signed_in? %>
-  <div class="table-container">
-    <table class="table table-striped">
-      <thead class="bg-danger text-white">
-        <tr>
-          <th class="w-1">名前</th>
-          <th class="w-2">プロフィール</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @users.each do |user| %>
+<section>
+  <h1>ゆる勉ユーザー一覧</h1>
+  <% if user_signed_in? %>
+    <div class="table-container">
+      <table class="table table-striped">
+        <thead class="bg-danger text-white">
           <tr>
-            <td><%= user.name %></td>
-            <td><%= user.profile %></td>
+            <th class="w-1">名前</th>
+            <th class="w-2">プロフィール</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.name %></td>
+              <td><%= user.profile %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 
-  <button type="button" class="btn btn-danger btn-lg" style="width: 200px;">
-    <%= link_to 'マイページへ', user_path(current_user.id), class: "text-white" %>
-  </button>
-<% else %>
-  <div class="alert alert-warning text-center my-4 mx-5" role="alert">
-    <a class="text-danger" href="/users/sign_in">
-      <strong>ログインしてください</strong>
-    </a>
-  </div>
-<% end %>
+    <button type="button" class="btn btn-lg" style="width: 200px;">
+      <%= link_to 'マイページへ', user_path(current_user.id), class: "text-white" %>
+    </button>
+  <% else %>
+    <div class="alert alert-warning text-center my-4 mx-5" role="alert">
+      <a class="text-danger" href="/users/sign_in">
+        <strong>ログインしてください</strong>
+      </a>
+    </div>
+  <% end %>
+</section>

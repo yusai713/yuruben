@@ -1,18 +1,29 @@
-<h1>開催予定の勉強会</h1>
-  <% @events.each do |event| %>
-    <p><%= event.name %><%= event.contents %></p>
-    <% if user_signed_in? %>
-      <% if event.event_user?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
-        <p><span>参加やめる: </span><%=link_to event.event_users.count, event_event_users_path(event.id), method: :delete %></p>
+<section>
+  <h1>開催予定の勉強会</h1>
+  <div class="flex">
+    <% @events.each do |event| %>
+    <div class="event-box">
+      <% if event.thumbnail? %>
+      <%= image_tag event.thumbnail.url %>
       <% else %>
-        <p><span>参加する: </span><%=link_to event.event_users.count, event_event_users_path(event.id), method: :post %></p>
+      <%= image_tag("no-thumbnail.jpg") %>
       <% end %>
-    <% else %>
-      <p><span>お気に入り数: </span><%= event.event_users.count %></p>
-      <p>ログインしてください</p>
+      <h2 class="h2-events">
+        <%=link_to event.name , event_path(event.id) %>
+      </h2>
+      <% if event.event_user?(current_user) %>
+      <!-- ログインしているユーザーが参加中かどうかで分岐 -->
+      <p class="event-reservation event-label">参加予定</p>
+      <% else %>
+      <p class="event-join event-label"><%=link_to "参加する！", event_event_users_path(event.id), method: :post %></p>
+      <% end %>
+      <p class="event-participants event-label">参加人数： <%= event.event_users.count %></p>
+    </div>
     <% end %>
-  <% end %>
+  </div>
+
   <hr>
   <button class="btn btn-lg btn-bg btn-register" type="button">
     <%= link_to "勉強会を企画する ▶︎", new_event_path %>
   </button>
+</section>

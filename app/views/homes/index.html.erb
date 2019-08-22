@@ -19,14 +19,23 @@
     </button>
   </section>
   <section class="flex-inner2">
-    <h2 class="h2-event">NEW！</h2>
+    <h2 class="h2-event">開催予定のイベント一覧</h2>
     <div class="evnet-list">
 
       <table class="event-list-box">
         <tbody>
           <% @events.each do |event| %>
           <tr>
-            <td><%= event.name %></td>
+            <td class="td_image">
+              <!--ユーザー画像-->
+              <% if event.user.image? %>
+              <%= image_tag event.user.image.url %>
+              <% else %>
+              <%= image_tag("no-image.png") %>
+              <% end %>
+            </td>
+            <!--/ユーザー画像-->
+            <td><%= event.starts_at.strftime("%m/%d") %>：<%= event.name %></td>
           </tr>
           <% end %>
         </tbody>

@@ -8,6 +8,8 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.where("starts_at  > ?", DateTime.now).order(:starts_at)
+    #@binding.irb
+    @event_users= @events.joins(:user).group(:event_id).select('user_id,image')
   end
 
   def new

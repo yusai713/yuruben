@@ -20,7 +20,16 @@
     <% end %>
     <% end %>
 
+    <% if event.user.image? %>
+    <%= image_tag event.user.image.url %>
+    <% else %>
+    <%= image_tag("no-image.png") %>
+    <% end %>
     <p class="event-participants event-label">参加人数： <%= event.event_users.count %></p>
   </div>
+  <% end %>
+
+  <% @event_users.each do |event_user| %>
+  <%= image_tag "/uploads/user/image/#{event_user.user_id}/#{event_user.image}" %>
   <% end %>
 </div>

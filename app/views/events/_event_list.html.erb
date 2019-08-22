@@ -2,11 +2,18 @@
   <% @events.each do |event| %>
   <div class="event-box">
     <% if event.thumbnail? %>
-    <%= image_tag event.thumbnail.url %>
+    <%= image_tag event.thumbnail.url, class: "event_box_thumbnail" %>
     <% else %>
-    <%= image_tag("no-thumbnail.jpg") %>
+    <%= image_tag "no-thumbnail.jpg" , class: "event_box_thumbnail" %>
     <% end %>
-    <p><%= event.starts_at %></p>
+    <p class="event_box_title">
+      <% if event.user.image? %>
+      <%= image_tag event.user.image.url, class:'event_user_img' %>
+      <% else %>
+      <%= image_tag "no-image.png",  class:'event_user_img' %>
+      <% end %>
+      <span><%= event.starts_at %></span>
+    </p>
     <h2 class="h2-events">
       <%=link_to event.name , event_path(event.id) %>
     </h2>
@@ -14,22 +21,12 @@
     <% if event.starts_at > DateTime.now %>
     <% if event.event_user?(current_user) %>
     <!-- ログインしているユーザーが参加中かどうかで分岐 -->
-    <p class="event-reservation event-label">参加予定</p>
+    <p class="c-blue event-label">参加予定</p>
     <% else %>
-    <p class="event-join event-label"><%=link_to "参加する！", event_event_users_path(event.id), method: :post %></p>
+    <p class="c-red event-label"><%=link_to "参加する！", event_event_users_path(event.id), method: :post %></p>
     <% end %>
     <% end %>
-
-    <% if event.user.image? %>
-    <%= image_tag event.user.image.url %>
-    <% else %>
-    <%= image_tag("no-image.png") %>
-    <% end %>
-    <p class="event-participants event-label">参加人数： <%= event.event_users.count %></p>
+    <p class="c-yellow event-label">参加人数： <%= event.event_users.count %></p>
   </div>
-  <% end %>
-
-  <% @event_users.each do |event_user| %>
-  <%= image_tag "/uploads/user/image/#{event_user.user_id}/#{event_user.image}" %>
   <% end %>
 </div>

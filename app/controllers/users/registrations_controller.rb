@@ -8,6 +8,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update
     user = User.find(current_user.id)
     user.update(user_params)
+    #binding.irb
     redirect_to user_path(current_user.id)
   end
 

@@ -8,6 +8,10 @@ a {
   color: #707070 !important;
   text-decoration: none !important;
   text-shadow: none !important;
+
+  &:hover {
+    opacity: 0.7;
+  }
 }
 
 img {
@@ -24,12 +28,11 @@ p,
 a,
 small {
   font-size: 20px;
-  ;
 }
 
-h1,
-  {
+h1 {
   line-height: 1.5;
+  text-align: center;
 }
 
 p,
@@ -41,6 +44,11 @@ h2 {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
+
+  .flex-inner2 {
+    width: 50%;
+    padding: 2% 5%;
+  }
 }
 
 body {
@@ -95,7 +103,7 @@ footer {
 }
 
 /*---homes---*/
-.homes {
+#homes_index {
   background: #FDDA63;
 }
 
@@ -109,14 +117,10 @@ footer {
   transform: translate(-50%, -50%);
 }
 
-.flex-inner2 {
-  width: 48%;
-  padding: 2%;
-}
-
 .h1-concept {
   font-size: 60px;
   margin-bottom: 40px;
+  text-align: left;
 }
 
 .p-desc {
@@ -124,30 +128,9 @@ footer {
 }
 
 .h2-event {
-  //border: 3px solid;
   padding: 10px;
-  //background: #fff;
-  width: 330px;
+  max-width: 350px;
   border-radius: 10px;
-}
-
-.btn-register {
-  width: 350px;
-  background: #fff;
-  border-radius: 50px;
-
-  a {
-    font-size: 25px;
-
-    &:hover {
-      color: #FDDA63 !important;
-    }
-
-  }
-}
-
-.h2-event {
-  margin-bottom: 50px;
 }
 
 .event-list-box {
@@ -160,57 +143,66 @@ footer {
     padding: 10px;
     border-bottom: 5px solid;
     vertical-align: middle;
-    font-size: 20px;
+    font-size: 16px;
+    height: 87px;
   }
 
   .td_image {
-    width: 100px;
+    width: 80px;
   }
 
   img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
   }
+}
+
+.date_font {
+  font-size: 13px;
+  opacity: 0.7;
 }
 
 /*---勉強会一覧---*/
 .h2-events {
   text-align: left;
+  margin-bottom: 15px;
 }
 
 .event_btn_box {
   margin: 30px 0;
-  display: inline-block;
+  text-align: center;
 }
 
 .event-box {
-  width: 30%;
+  width: 31.3%;
   padding: 1%;
   border: 3px solid;
-  margin: 1% 1% 1% 0;
+  margin: 1.5% 1%;
+
+  .event_box_thumbnail {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+  }
+
+  .event_box_title {
+    margin: 15px 0 10px;
+
+  }
 
   .event-label {
     padding: 0px 10px;
-    width: 150px;
     text-align: center;
     border-radius: 50px;
   }
 
-  .event-participants {
-    background: #FFDE63;
-  }
+}
 
-  .event-reservation {
-    background: #43B4F8;
-    color: white;
-  }
-
-  .event-join {
-    background: #FB7F89;
-    color: white;
-  }
-
+.event_user_img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
 }
 
 /*---マイページ---*/
@@ -251,10 +243,38 @@ footer {
   }
 }
 
+/*---Color---*/
+.c-yellow {
+  background: #FFDE63;
+}
 
+.c-blue {
+  background: #43B4F8;
+  color: white;
+}
+
+.c-red {
+  background: #FB7F89;
+  color: white;
+}
 
 
 /*---btn---*/
+.btn-register {
+  width: 350px;
+  background: #fff;
+  border-radius: 50px;
+
+  &:hover {
+    background: #fff !important;
+    border: 1px solid;
+  }
+
+  a {
+    font-size: 25px;
+  }
+}
+
 .btn_common {
   background: #FFDE63;
   margin: 15px 0;
@@ -265,16 +285,34 @@ footer {
   }
 }
 
-
-
 .btn_event {
   width: 150px;
   border: 2px solid;
   padding: 10px;
-  margin: 0 5px 0 0;
+  margin: 0 5px;
   background: yellow;
 
   &:a {
     font-size: 15px;
+  }
+}
+
+/*---form---*/
+.w-768 {
+  width: 768px;
+  margin: 0 auto;
+}
+
+form:not(#registrations_edit form) {
+  width: 350px;
+  margin: 0 auto;
+}
+
+.field {
+  margin-bottom: 30px;
+
+  input,
+  textarea {
+    width: 100% !important;
   }
 }

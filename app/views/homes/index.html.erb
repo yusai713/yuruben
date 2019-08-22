@@ -19,7 +19,7 @@
     </button>
   </section>
   <section class="flex-inner2">
-    <h2 class="h2-event">開催予定のイベント一覧</h2>
+    <h2 class="h2-event">🙋🏻‍♂️ 開催間近の勉強会一覧 🙋🏻‍♀️</h2>
     <div class="evnet-list">
 
       <table class="event-list-box">
@@ -35,7 +35,10 @@
               <% end %>
             </td>
             <!--/ユーザー画像-->
-            <td><%= event.starts_at.strftime("%m/%d") %>：<%= event.name %></td>
+            <td>
+              <span class="date_font"><%= event.starts_at.strftime("%m月%d日") %></span><br>
+              <%= event.name %>
+            </td>
           </tr>
           <% end %>
         </tbody>

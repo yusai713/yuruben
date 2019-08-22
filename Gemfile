@@ -19,7 +19,7 @@ gem 'mini_magick'
 gem 'cancancan'
 gem 'bootstrap', '>=4.3.1'
 gem 'jquery-rails'
-#
+gem 'omniauth-twitter'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

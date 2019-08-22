@@ -1,3 +1,5 @@
+require 'date'
+
 class EventsController < ApplicationController
 
   def def(move_to_index)
@@ -5,7 +7,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
+    @events = Event.where("starts_at  > ?", DateTime.now).order(:starts_at)
   end
 
   def new
@@ -17,6 +19,7 @@ class EventsController < ApplicationController
       name: event_params[:name],
       contents: event_params[:contents],
       thumbnail: event_params[:thumbnail],
+      starts_at: event_params[:starts_at],
       user_id: current_user.id
     )
 
@@ -38,6 +41,17 @@ class EventsController < ApplicationController
     @event = find_event_by_id
   end
 
+  def destroy
+    event = Event.find(params[:id])
+    event.destroy
+
+    redirect_to events_path
+  end
+
+   def back_number
+    @events = Event.where("starts_at  < ?", DateTime.now).order(:starts_at)
+   end
+
   private
 
   def event_params
@@ -45,7 +59,8 @@ class EventsController < ApplicationController
       :name,
       :contents,
       :thumbnail,
-      :remove_thumbnail
+      :remove_thumbnail,
+      :starts_at
     )
   end
 

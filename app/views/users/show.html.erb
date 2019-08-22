@@ -6,7 +6,9 @@
     <%= image_tag("no-image.png") %>
     <% end %>
     <p><%= @user.name %></p>
+    <% if @user.profile? %>
     <p class="profile_text"><%= @user.profile %></p>
+    <% end %>
     <button class="btn_common">
       <%= link_to 'プロフィールの編集', edit_user_registration_path %>
     </button>

@@ -15,7 +15,9 @@
   <div class="field">
     <%= f.label :プロフィール画像 %><br />
     <%= f.file_field :image, id: :user_image %>
+    <% if @user.image? %>
     <p><%= f.check_box :remove_image %> 画像を削除する</p>
+    <% end %>
   </div>
 
   <!--アカウント編集時に名前を入力できるようにフォームを追加-->

@@ -2,22 +2,27 @@
 <div class="field">
   <%= f.label :サムネ画像 %><br />
   <%= f.file_field :thumbnail, id: :event_thumbnail %>
+  <% if !current_page?(action: :new) %>
   <p><%= f.check_box :remove_thumbnail %> 画像を削除する</p>
-</div>
+  <% end %>
+  <div class="field">
+    <%= f.label :開催日付 %><br />
+    <%= f.datetime_field :starts_at, autofocus: true %>
+  </div>
 
-<div class="field">
-  <%= f.label :何の勉強会？ %><br />
-  <%= f.text_field :name, autofocus: true %>
-</div>
+  <div class="field">
+    <%= f.label :何の勉強会？ %><br />
+    <%= f.text_field :name %>
+  </div>
 
-<div class="field">
-  <%= f.label :内容 %><br />
-  <%= f.text_area :contents, autofocus: true %>
-</div>
+  <div class="field">
+    <%= f.label :内容 %><br />
+    <%= f.text_area :contents, autofocus: true %>
+  </div>
 
-<div class="actions">
-  <%= f.submit "送信" %>
-</div>
-<% end %>
+  <div class="actions">
+    <%= f.submit "送信" %>
+  </div>
+  <% end %>
 
-<p>▶︎ <%= link_to "前のページに戻る", :back %></p>
+  <p>▶︎ <%= link_to "前のページに戻る", :back %></p>

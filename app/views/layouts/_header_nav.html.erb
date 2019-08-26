@@ -8,27 +8,34 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "勉強会一覧", events_path, class: 'nav-link post' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "マイページ", user_path(current_user), class: 'nav-link post' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link' %>
-          </li>
+        <li class="nav-item">
+          <%= link_to "勉強会一覧", events_path, class: 'nav-link post' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ユーザー一覧", users_path, class: 'nav-link post' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "マイページ", user_path(current_user), class: 'nav-link post' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+        </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "ログイン", new_user_session_path, class: 'nav-link post' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "新規登録", new_user_registration_path, class: 'nav-link post' %>
-          </li>
+        <li class="nav-item">
+          <%= link_to "ログイン", new_user_session_path, class: 'nav-link post' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "新規登録", new_user_registration_path, class: 'nav-link post' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Twitterでログイン', user_twitter_omniauth_authorize_path, class: 'nav-link post' %>
+        </li>
+
         <% end %>
         <% if user_signed_in? && current_user.admin? %>
-          <li class="nav-item active">
-            <a class="nav-item nav-link active" href="/admin" target="_blank=">管理画面</a>
-          </li>
+        <li class="nav-item active">
+          <a class="nav-item nav-link active" href="/admin" target="_blank=">管理画面</a>
+        </li>
         <% end %>
       </ul>
     </div>

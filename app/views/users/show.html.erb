@@ -1,4 +1,4 @@
-<section>
+<section class="w-768">
   <div class="profile">
     <% if @user.image? %>
     <%= image_tag @user.image.url %>
@@ -9,12 +9,15 @@
     <% if @user.profile? %>
     <p class="profile_text"><%= @user.profile %></p>
     <% end %>
-    <button class="btn_common">
+
+    <% if @user.id == current_user.id %>
+    <button class="btn_common c-yellow w-100">
       <%= link_to 'プロフィールの編集', edit_user_registration_path %>
     </button>
-    <button class="btn_common">
-      <%= link_to 'ユーザー情報を消す', user_path, method: :delete, data: {confirm: "アカウントを削除しますか？"}  %>
+    <button class="btn_common c-red w-100">
+      <%= link_to 'ユーザー情報の削除', user_path, method: :delete, data: {confirm: "アカウントを削除しますか？"}  %>
     </button>
+    <% end %>
   </div>
 
   <hr>
@@ -26,7 +29,9 @@
       ○<%= link_to event.name, event_path(event.id) %>
       <% if event.event_user?(current_user) %>
       <!-- ログインしているユーザーが参加中かどうかで分岐 -->
+      <% if @user.id == current_user.id %>
       <span class="cancel"><%=link_to "×", event_event_users_path(event.id), method: :delete %></span>
+      <% end %>
       <% end %>
     </p>
     <% end %>

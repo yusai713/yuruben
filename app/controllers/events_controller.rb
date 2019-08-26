@@ -17,7 +17,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    Event.create(
+    @event = Event.create(
       name: event_params[:name],
       contents: event_params[:contents],
       thumbnail: event_params[:thumbnail],
@@ -25,7 +25,11 @@ class EventsController < ApplicationController
       user_id: current_user.id
     )
 
-    redirect_to action: :index
+    if @event.save
+      redirect_to action: :index
+    else
+      redirect_to action: :new
+    end
   end
 
   def edit

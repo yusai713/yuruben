@@ -37,7 +37,7 @@
             <!--/ユーザー画像-->
             <td>
               <span class="date_font"><%= event.starts_at.strftime("%m月%d日") %></span><br>
-              <%= event.name %>
+              <%= link_to event.name.truncate(25),event_path(event.id) %>
             </td>
           </tr>
           <% end %>

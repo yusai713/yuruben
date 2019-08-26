@@ -1,4 +1,4 @@
-<section>
+<section class="w-768">
   <h1><%= @event.name %></h1>
   <div class="thumbnail-box">
     <% if @event.thumbnail? %>
@@ -9,15 +9,18 @@
   </div>
 
   <div class="event_contents">
-    <p><%= @event.contents %></p>
+    <%= @event.contents %>
   </div>
 
-  <button class="btn_common">
+  <% if @event.user_id == current_user.id %>
+  <button class="btn_common c-yellow w-49">
     <%= link_to 'イベントの編集', edit_event_path %>
   </button>
 
-  <button>
+  <button class="btn_common c-red w-49">
     <%= link_to '勉強会をやめる', event_path, method: :delete, data: {confirm: "イベントを削除しますか？"}  %>
   </button>
+
+  <% end %>
 
 </section>

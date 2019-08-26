@@ -2,13 +2,14 @@
   <div class="profile">
     <h2>ユーザー情報変更</h2>
     <% if @user.image? %>
-    <%= image_tag @user.image.url %>
+    <%= image_tag @user.image.url, id: :img_prev %>
     <% else %>
-    <%= image_tag("no-image.png") %>
+    <%= image_tag "no-image.png", id: :img_prev %>
     <% end %>
   </div>
-  </div>
+
   <hr>
+
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -16,49 +17,66 @@
     <%= f.label :プロフィール画像 %><br />
     <%= f.file_field :image, id: :user_image %>
     <% if @user.image? %>
-    <p><%= f.check_box :remove_image %> 画像を削除する</p>
+    <p><%= f.check_box :remove_image %> <span>画像を削除する</span></p>
     <% end %>
   </div>
-
   <!--アカウント編集時に名前を入力できるようにフォームを追加-->
   <div class="field">
     <%= f.label :名前 %><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
-
-  <div class="field">
-    <%= f.label :Email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :Password %> <i>(変更したくない場合は、空で)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-    <br />
-    <em><%= @minimum_password_length %> 文字以上</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :Password再確認 %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
   <!--アカウント編集時にプロフィールを入力できるようにフォームを追加-->
   <div class="field">
-    <%= f.label :profile %><br />
+    <%= f.label :自己紹介文 %><br />
     <%= f.text_area :profile, autofocus: true %>
   </div>
+
+  <!--
+    <div class="flex-inner2">
+      <div class="field">
+        <%= f.label :Email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :Password %><i>(<%= @minimum_password_length %> 文字以上)</i><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :再確認 %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+    </div>
+    -->
 
   <div class="actions">
     <%= f.submit "更新する" %>
   </div>
-  <% end %>
 
-  <p>▶︎ <%= link_to "前のページに戻る", :back %></p>
+  <button class="btn_common c-yellow t-center">
+    <%= link_to "前のページに戻る", :back %>
+  </button>
+  <% end %>
 </section>
+
+<script type="text/javascript">
+  $(function () {
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('#img_prev').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    $("#user_image").change(function () {
+      readURL(this);
+    });
+  });
+</script>

@@ -1,9 +1,9 @@
 <section>
-  <div class="event_btn_box">
-    <%= link_to "勉強会を企画する ▶︎", new_event_path, class: "btn_event" %>
-    <%= link_to "過去のイベント一覧へ", "/events/back_number", class: "btn_event" %>
-  </div>
   <h1>開催予定の勉強会</h1>
+  <div class="event_btn_box">
+    <%= link_to "勉強会を企画する", new_event_path, class: "btn_event btn_event_new" %>
+    <%= link_to "過去のイベント一覧へ", "/events/back_number", class: "btn_event btn_event_past" %>
+  </div>
   <%= render "event_list" %>
   <hr>
 </section>

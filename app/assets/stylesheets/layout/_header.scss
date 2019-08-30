@@ -1,0 +1,19 @@
+header {
+  width: 100%;
+  background: #fff;
+
+  nav {
+    max-width: 1140px;
+    height: 80px;
+    margin: 0 auto;
+
+    .logo-img {
+      width: 150px;
+    }
+
+    #navbarNav ul {
+      position: absolute;
+      right: 0%;
+    }
+  }
+}

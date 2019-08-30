@@ -1,0 +1,41 @@
+/* ==============================================================
+*  マイページ
+* ============================================================ */
+.profile {
+  width: 350px;
+  margin: 0 auto;
+  text-align: center;
+
+  .profile_text {
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    font-size: 15px;
+    margin-bottom: 30px;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+.reserved_event {
+  margin: 30px auto;
+
+  .reserved_event_h {
+    width: 200px;
+    background: #48B0E9;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+  }
+
+  .cancel {
+    border: 1px solid;
+    padding: 0 5px;
+  }
+}

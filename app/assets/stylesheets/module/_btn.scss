@@ -1,0 +1,93 @@
+button {
+  padding: 10px 20px;
+}
+
+.btn_common {
+  margin: 10px 0;
+  padding: 10px;
+  border: 2px solid #707070;
+}
+
+/* ==============================================================
+*  登録ボタン
+* ============================================================ */
+.btn-register {
+  width: 350px;
+  background: #fff;
+  border-radius: 50px;
+
+  &:hover {
+    border: 1px solid;
+  }
+
+  a {
+    font-size: 25px;
+    font-weight: bold;
+  }
+}
+
+/* ==============================================================
+*  勉強会一覧
+* ============================================================ */
+.btn_event {
+  width: 150px;
+  border: 2px solid #707070;
+  padding: 10px;
+  margin: 0 5px;
+  color: #fff;
+
+  &:hover {
+    background: #fff;
+    font-weight: bold;
+  }
+}
+
+.btn_event_new {
+  background: #FB7F89;
+
+  &:hover {
+    color: #FB7F89;
+  }
+}
+
+.btn_event_past {
+  background: #707070;
+
+  &:hover {
+    color: #707070;
+  }
+}
+
+/* ==============================================================
+*  ボタン色
+* ============================================================ */
+.c-yellow {
+  background: #FFDE63;
+
+  &:hover {
+    background: #fff;
+  }
+}
+
+.c-blue {
+  background: #43B4F8;
+
+  a {
+    color: #fff;
+  }
+}
+
+.c-red {
+  background: #FB7F89;
+
+  &:hover {
+    a {
+      color: #707070;
+    }
+
+  }
+
+  a {
+    color: #fff;
+  }
+}

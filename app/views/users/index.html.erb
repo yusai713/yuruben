@@ -1,4 +1,4 @@
-<section class="t-center">
+<section class="text-center">
   <h1>ゆる勉ユーザー一覧</h1>
   <% if user_signed_in? %>
   <div class="users_box flex flex-wrap ">
@@ -19,9 +19,7 @@
     <% end %>
   </div>
 
-  <button class="btn_common c-yellow t-center">
-    <%= link_to 'マイページへ', user_path(current_user.id) %>
-  </button>
+   <%= link_to 'マイページへ', user_path(current_user.id), class:"btn_common c-yellow"; %>
 
   <% else %>
   <div class="alert alert-warning text-center my-4 mx-5" role="alert">

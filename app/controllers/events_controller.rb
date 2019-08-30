@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.where("starts_at  > ?", DateTime.now).order(:starts_at)
+    @events = Event.where("starts_at  > ?", DateTime.now).order(:starts_at).page(params[:page]).per(12)
     @event_users= @events.joins(:user).group(:event_id).select('email, user_id, image')
     #binding.irb
   end

@@ -1,0 +1,19 @@
+/* ==============================================================
+*  User一覧ページ
+* ============================================================ */
+.users_box {
+  margin: 0 auto;
+}
+
+.user_box {
+  display: inline-block;
+  width: 18%;
+  margin: 2% 1%;
+
+  img {
+    width: 125px;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}

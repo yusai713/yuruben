@@ -1,0 +1,16 @@
+/* ==============================================================
+*  ブレイクポイント
+* ============================================================ */
+//タブレット用
+@mixin media-tb {
+  @media screen and (max-width:$breakpoint-tab) {
+    @content;
+  }
+}
+
+//スマホ用
+@mixin media-sp {
+  @media screen and (max-width:$breakpoint-sp) {
+    @content;
+  }
+}

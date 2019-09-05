@@ -1,0 +1,23 @@
+/* ==============================================================
+*  勉強会詳細ページ
+* ============================================================ */
+.thumbnail-box {
+  padding: 20px 0;
+  text-align: center;
+
+  img {
+    border-radius: 30px;
+    width: 100%;
+    max-height: 512px;
+    object-fit: cover;
+  }
+}
+
+.event_contents {
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 15px;
+  min-height: 200px;
+}
